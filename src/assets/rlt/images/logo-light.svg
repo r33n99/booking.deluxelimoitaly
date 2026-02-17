@@ -1,0 +1,212 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 359 179" width="359" height="179">
+	<title>&lt;Group&gt;</title>
+	<defs>
+		<linearGradient id="g1" x1="279.1" y1="99.7" x2="268.4" y2="22.6" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#b3b3b3"/>
+		</linearGradient>
+		<linearGradient id="g2" x1="251.7" y1="91.9" x2="250.9" y2="74.4" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#b3b3b3"/>
+		</linearGradient>
+		<linearGradient id="g3" x1="238.7" y1="105.7" x2="238" y2="89.8" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#b3b3b3"/>
+		</linearGradient>
+		<linearGradient id="g4" x1="224.4" y1="117.6" x2="223.8" y2="104.5" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#b3b3b3"/>
+		</linearGradient>
+		<linearGradient id="g5" x1="80.5" y1="99.7" x2="91.2" y2="22.6" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#b3b3b3"/>
+		</linearGradient>
+		<linearGradient id="g6" x1="107.9" y1="91.9" x2="108.7" y2="74.4" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#b3b3b3"/>
+		</linearGradient>
+		<linearGradient id="g7" x1="120.9" y1="105.7" x2="121.6" y2="89.8" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#b3b3b3"/>
+		</linearGradient>
+		<linearGradient id="g8" x1="135.2" y1="117.6" x2="135.8" y2="104.5" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#b3b3b3"/>
+		</linearGradient>
+		<linearGradient id="g9" x1="231.9" y1="27.3" x2="234.5" y2="143" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#030303"/>
+		</linearGradient>
+		<linearGradient id="g10" x1="131.1" y1="133.9" x2="130.3" y2="-31.5" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#000000"/>
+		</linearGradient>
+		<linearGradient id="g11" x1="131.1" y1="128" x2="129.9" y2="29.7" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#a3a3a3"/>
+		</linearGradient>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="m222.49 78.24c0 23.65-19.18 42.83-42.83 42.83-23.66 0-42.84-19.18-42.84-42.83 0-23.66 19.18-42.84 42.84-42.84 23.65 0 42.83 19.18 42.83 42.84z"/>
+		</clipPath>
+		<linearGradient id="g12" x1="136.8" y1="121.5" x2="136.4" y2="35.4" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+			<stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+		</linearGradient>
+		<image width="196" height="196" id="img1" href="data:image/png;base64,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"/>
+		<linearGradient id="g13" x1="152.4" y1="144.2" x2="152.5" y2="128.9" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#56575a"/>
+			<stop offset=".542" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#000000"/>
+		</linearGradient>
+		<linearGradient id="g14" x1="207.1" y1="129" x2="207.2" y2="142" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#56575a"/>
+			<stop offset=".542" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#000000"/>
+		</linearGradient>
+		<linearGradient id="g15" x1="136.7" y1="131" x2="136.7" y2="118.5" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#56575a"/>
+			<stop offset=".542" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#000000"/>
+		</linearGradient>
+		<linearGradient id="g16" x1="214.9" y1="133.5" x2="215.4" y2="117.5" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#56575a"/>
+			<stop offset=".542" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#000000"/>
+		</linearGradient>
+		<linearGradient id="g17" x1="173.8" y1="147.8" x2="174.1" y2="134" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#56575a"/>
+			<stop offset=".542" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#787878"/>
+		</linearGradient>
+	</defs>
+	<style>
+		tspan { white-space:pre } 
+		.s0 { fill: #2f2f2f } 
+		.s1 { fill: #fefefe } 
+		.s2 { fill: url(#g1) } 
+		.s3 { fill: url(#g2) } 
+		.s4 { fill: url(#g3) } 
+		.s5 { fill: url(#g4) } 
+		.s6 { fill: url(#g5) } 
+		.s7 { fill: url(#g6) } 
+		.s8 { fill: url(#g7) } 
+		.s9 { fill: url(#g8) } 
+		.s10 { fill: url(#g9) } 
+		.s11 { fill: url(#g10);stroke: url(#g11);stroke-width: .5 } 
+		.s12 { fill: #fcfcfc } 
+		.s13 { fill: #c1202f } 
+		.s14 { fill: #284929 } 
+		.s15 { opacity: .2;fill: #fdfefe } 
+		.s16 { fill: url(#g12) } 
+		.s17 { fill: #050405 } 
+		.s18 { fill: #000000 } 
+		.s19 { fill: url(#g13) } 
+		.s20 { fill: url(#g14) } 
+		.s21 { fill: url(#g15) } 
+		.s22 { fill: url(#g16) } 
+		.s23 { fill: url(#g17) } 
+		.t24 { font-size: 11px;line-height: 29px;fill: #2c2e35;font-family: "Perpetua" } 
+		.t25 { font-size: 15px;line-height: 40px;fill: #2c2e35;font-family: "Perpetua" } 
+	</style>
+	<g id="&lt;Group&gt;">
+		<g id="&lt;Group&gt;">
+			<g id="&lt;Group&gt;">
+				<g id="&lt;Group&gt;">
+					<g id="&lt;Group&gt;">
+						<path id="&lt;Path&gt;" class="s0" d="m332.1 33.1c-13.4 2.8-26.9 4.8-40.5 6.4-17.2 2-34.4 3.3-51.7 4.5-9.7 0.7-19.5 1.2-29.3 1.8 3.5 8.2 8.5 16.4 8.8 25.5 21.8-0.8 57.5-2.6 74.9-5.5 3.5-0.5 6.9-1.1 10.1-3.3 17.5-11.9 35.1-23.6 52.7-35.4 0.5-0.4 1-0.7 1.8-1.3-4.3 1-15.9 4.5-26.8 7.3z"/>
+						<path id="&lt;Path&gt;" class="s1" d="m332.1 33.1c-13.4 2.8-26.9 4.8-40.5 6.4-17.2 2-34.4 3.3-51.7 4.5-9.7 0.7-19.5 1.2-29.3 1.8 1.6 3.8 3.5 7.6 5.2 11.4 14.7 1.2 30.7-0.7 44.7-0.7 7-0.1 13.7-0.2 20.4-0.6 1.7-1.1 3.7-1.8 6.2-1.8 4.2-0.2 8-3.4 11.7-4.9 4.4-1.9 8.6-2.8 13.3-3.8 5.4-1.1 10.4-2.7 15.4-4.9 1.1-0.5 7-3.1 8.9-3.6q0.9-0.5 1.8-0.8 2.1-1.4 4.4-1.9c1.8-2.5 15.5-7.8 16.3-8.4-4.3 1-15.9 4.5-26.8 7.3z"/>
+						<path id="&lt;Path&gt;" class="s2" d="m291.1 42.7c-12.1 1.4-23.2 2.6-35.4 3.5-6.6 0.4-27.4 1.6-43.9 2.5 3 6.4 6.4 12.9 7.4 19.9 23.7-1.1 60-3.1 75.9-5.7 2.5-0.4 5.3-1.3 7.5-2.8 16-9.8 45.2-29.1 45.7-29.5-3 1.2-26.2 9.3-57.2 12.1z"/>
+					</g>
+					<g id="&lt;Group&gt;">
+						<path id="&lt;Path&gt;" class="s0" d="m278 74c-9.7 1.3-34.9 2.7-55.2 3.4-0.6 3.1-1.6 5.9-2.8 8.6 15.5-0.4 31.1-1.3 47-2.8 2.6-0.4 4.5-1.1 6.8-2.4 4.5-2.5 14.9-9.2 14.8-9.3-2.2 0.5-9 2.3-10.6 2.5z"/>
+						<path id="&lt;Path&gt;" class="s1" d="m282.5 72.4c-9.9 1.4-37.7 2.9-59.5 3.7-0.3 2.2-0.8 4.2-1.5 6.2 1.2-0.5 2.5-0.9 4-1 9.1-0.7 17.4-3.7 26.6-3.5 5.5 0.1 10.9 0.2 16.3-0.1 2.6-0.1 7.3-2 3.5 1.2 2.7-2.2 4.1-2.8 6.9-2.8 2.4-2.1 9.8-4.6 9.8-4.6-2.2 0.6-4.4 0.7-6.1 0.9z"/>
+						<path id="&lt;Path&gt;" class="s3" d="m260.7 75.6c-11.7 0.7-26 1.4-37.9 1.9-0.5 2.5-1.3 4.7-2.1 7 10.4-0.4 24.2-1.3 45.7-3 4.9-0.9 7.3-2.5 8.7-3.1 4-2.1 9.4-5.2 9-5.2-0.5 0.1-10.8 1.6-23.4 2.4z"/>
+					</g>
+					<g id="&lt;Group&gt;">
+						<path id="&lt;Path&gt;" class="s0" d="m257.9 89.3c-7.4 1-24 2-40.4 2.8-0.8 1.8-1.5 3.7-2 5.6q-0.4 1.6-1 3c10.7-0.5 21.5-1.2 32.4-2.3 2.6-0.3 4.5-1 6.8-2.3 4.5-2.5 14.8-9.3 14.8-9.3-2.2 0.5-9 2.2-10.6 2.5z"/>
+						<path id="&lt;Path&gt;" class="s1" d="m262.4 87.7c-7.7 1.1-26.3 2.2-44.4 3q-0.9 2.1-1.6 4.2c5.1-1 10.2-1.9 15.6-1.8 5.4 0.1 10.9 0.2 16.3-0.1 2.6-0.1 7.3-2 3.5 1.1 2.6-2.2 4.1-2.7 6.9-2.7 2.4-2.2 9.8-4.6 9.8-4.6-2.2 0.5-4.5 0.7-6.1 0.9z"/>
+						<path id="&lt;Path&gt;" class="s4" d="m240.5 90.8c-7.1 0.5-15.1 0.9-23.1 1.3-0.7 1.8-1.4 3.7-1.9 5.6q-0.2 0.7-0.4 1.3c8.3-0.5 18.4-1.2 31.2-2.2 4.9-1 7.3-2.5 8.7-3.2 4-2.1 9.4-5.2 9-5.2-0.5 0.2-10.8 1.6-23.5 2.4z"/>
+					</g>
+					<g id="&lt;Group&gt;">
+						<path id="&lt;Path&gt;" class="s0" d="m237.5 104c-5 0.7-14.6 1.3-25.3 1.9-1.7 3-3.7 5.6-6.3 7.7 7.2-0.4 14.5-0.9 21.9-1.6 2.3-0.3 4-0.9 6-2 3.9-2.2 13-8.2 12.9-8.2-1.9 0.4-7.8 2-9.2 2.2z"/>
+						<path id="&lt;Path&gt;" class="s1" d="m241.4 102.6c-5.3 0.7-16.4 1.5-28.6 2.2q-0.7 1.3-1.5 2.6 1.7-0.1 3.5-0.1c4.8 0.1 9.5 0.2 14.3-0.1 2.2-0.1 6.4-1.7 3.1 1 2.3-1.9 3.5-2.4 6-2.4 2-1.9 8.6-4 8.5-4-1.9 0.5-3.9 0.6-5.3 0.8z"/>
+						<path id="&lt;Path&gt;" class="s5" d="m222.3 105.3c-3.2 0.3-6.6 0.5-10.1 0.6q-1.9 3.4-4.6 6.1c5.7-0.4 12.1-0.8 19.7-1.4 4.3-0.9 6.4-2.2 7.6-2.8 3.5-1.9 8.2-4.5 7.9-4.5-0.4 0.1-9.4 1.3-20.5 2z"/>
+					</g>
+				</g>
+				<g id="&lt;Group&gt;">
+					<g id="&lt;Group&gt;">
+						<path id="&lt;Path&gt;" class="s0" d="m27.5 33.1c13.4 2.8 26.9 4.8 40.5 6.4 17.2 2 34.4 3.3 51.7 4.5 9.8 0.7 19.6 1.2 29.3 1.8-3.5 8.2-8.4 16.4-8.8 25.5-21.8-0.8-57.5-2.6-74.9-5.5-3.5-0.5-6.9-1.1-10.1-3.3-17.5-11.9-35.1-23.6-52.7-35.4-0.5-0.4-1-0.7-1.8-1.3 4.3 1 16 4.5 26.8 7.3z"/>
+						<path id="&lt;Path&gt;" class="s1" d="m27.5 33.1c13.4 2.8 26.9 4.8 40.5 6.4 17.2 2 34.4 3.3 51.7 4.5 9.8 0.7 19.6 1.2 29.3 1.8-1.6 3.8-3.5 7.6-5.2 11.4-14.6 1.2-30.7-0.7-44.7-0.7-7-0.1-13.7-0.2-20.4-0.6-1.7-1.1-3.7-1.8-6.2-1.8-4.1-0.2-8-3.4-11.7-4.9-4.4-1.9-8.6-2.8-13.3-3.8-5.4-1.1-10.4-2.7-15.4-4.9-1.1-0.5-7-3.1-8.9-3.6q-0.9-0.5-1.8-0.8-2.1-1.4-4.4-1.9c-1.8-2.5-15.5-7.8-16.3-8.4 4.3 1 16 4.5 26.8 7.3z"/>
+						<path id="&lt;Path&gt;" class="s6" d="m68.5 42.7c12.1 1.4 23.2 2.6 35.5 3.5 6.5 0.4 27.3 1.6 43.8 2.5-3 6.4-6.4 12.9-7.3 19.9-23.8-1.1-60.1-3.1-76-5.7-2.5-0.4-5.3-1.3-7.5-2.8-16-9.8-45.2-29.1-45.7-29.5 3 1.2 26.2 9.3 57.2 12.1z"/>
+					</g>
+					<g id="&lt;Group&gt;">
+						<path id="&lt;Path&gt;" class="s0" d="m81.6 74c9.7 1.3 34.9 2.7 55.2 3.4 0.6 3.1 1.6 5.9 2.8 8.6-15.5-0.4-31.1-1.3-47-2.8-2.6-0.4-4.5-1.1-6.8-2.4-4.5-2.5-14.8-9.2-14.8-9.3 2.2 0.5 9 2.3 10.6 2.5z"/>
+						<path id="&lt;Path&gt;" class="s1" d="m77.1 72.4c9.9 1.4 37.8 2.9 59.5 3.7 0.3 2.2 0.8 4.2 1.5 6.2-1.2-0.5-2.5-0.9-4-1-9.1-0.7-17.4-3.7-26.6-3.5-5.4 0.1-10.9 0.2-16.3-0.1-2.6-0.1-7.3-2-3.5 1.2-2.6-2.2-4.1-2.8-6.9-2.8-2.4-2.1-9.8-4.6-9.8-4.6 2.2 0.6 4.5 0.7 6.1 0.9z"/>
+						<path id="&lt;Path&gt;" class="s7" d="m99 75.6c11.6 0.7 25.9 1.4 37.8 1.9 0.5 2.5 1.3 4.7 2.1 7-10.4-0.4-24.2-1.3-45.7-3-4.9-0.9-7.3-2.5-8.7-3.1-4-2.1-9.4-5.2-9-5.2 0.5 0.1 10.8 1.6 23.5 2.4z"/>
+					</g>
+					<g id="&lt;Group&gt;">
+						<path id="&lt;Path&gt;" class="s0" d="m101.7 89.3c7.5 1 24 2 40.5 2.8 0.7 1.8 1.4 3.7 1.9 5.6q0.4 1.6 1 3c-10.7-0.5-21.5-1.2-32.4-2.3-2.6-0.3-4.5-1-6.8-2.3-4.5-2.5-14.8-9.3-14.8-9.3 2.2 0.5 9 2.2 10.6 2.5z"/>
+						<path id="&lt;Path&gt;" class="s1" d="m97.2 87.7c7.7 1.1 26.3 2.2 44.4 3q0.9 2.1 1.6 4.2c-5.1-1-10.2-1.9-15.6-1.8-5.4 0.1-10.9 0.2-16.3-0.1-2.6-0.1-7.3-2-3.5 1.1-2.6-2.2-4.1-2.7-6.9-2.7-2.3-2.2-9.8-4.6-9.8-4.6 2.2 0.5 4.5 0.7 6.1 0.9z"/>
+						<path id="&lt;Path&gt;" class="s8" d="m119.1 90.8c7.1 0.5 15.1 0.9 23.1 1.3 0.7 1.8 1.4 3.7 1.9 5.6q0.2 0.7 0.4 1.3c-8.2-0.5-18.3-1.2-31.2-2.2-4.9-1-7.3-2.5-8.6-3.2-4-2.1-9.5-5.2-9.1-5.2 0.5 0.2 10.8 1.6 23.5 2.4z"/>
+					</g>
+					<g id="&lt;Group&gt;">
+						<path id="&lt;Path&gt;" class="s0" d="m122.1 104c5 0.7 14.6 1.3 25.3 1.9 1.7 3 3.7 5.6 6.4 7.7-7.3-0.4-14.6-0.9-22-1.6-2.3-0.3-4-0.9-6-2-3.9-2.2-13-8.2-12.9-8.2 1.9 0.4 7.8 2 9.2 2.2z"/>
+						<path id="&lt;Path&gt;" class="s1" d="m118.2 102.6c5.3 0.7 16.4 1.5 28.6 2.2q0.7 1.3 1.6 2.6-1.8-0.1-3.6-0.1c-4.8 0.1-9.5 0.2-14.3-0.1-2.2-0.1-6.4-1.7-3.1 1-2.2-1.9-3.5-2.4-6-2.4-2-1.9-8.5-4-8.5-4 1.9 0.5 3.9 0.6 5.3 0.8z"/>
+						<path id="&lt;Path&gt;" class="s9" d="m137.3 105.3c3.2 0.3 6.6 0.5 10.2 0.6q1.8 3.4 4.5 6.1c-5.7-0.4-12.1-0.8-19.7-1.4-4.3-0.9-6.4-2.2-7.6-2.8-3.5-1.9-8.2-4.5-7.9-4.5 0.4 0.1 9.4 1.3 20.5 2z"/>
+					</g>
+				</g>
+			</g>
+			<g id="&lt;Group&gt;">
+				<g id="&lt;Group&gt;">
+					<path id="&lt;Path&gt;" class="s10" d="m231.8 78.2c0 28.8-23.3 52.2-52.1 52.2-28.9 0-52.2-23.4-52.2-52.2 0-28.8 23.3-52.1 52.2-52.1 28.8 0 52.1 23.3 52.1 52.1z"/>
+					<path id="&lt;Path&gt;" class="s11" d="m228.2 78.2c0 26.9-21.7 48.6-48.5 48.6-26.9 0-48.6-21.7-48.6-48.6 0-26.8 21.7-48.5 48.6-48.5 26.8 0 48.5 21.7 48.5 48.5z"/>
+					<g id="&lt;Group&gt;">
+						<g id="&lt;Clip Group&gt;" clip-path="url(#cp1)">
+							<g id="&lt;Group&gt;">
+								<path id="&lt;Path&gt;" class="s12" d="m197.6 128.5h-35.8v-100.5h35.8z"/>
+								<path id="&lt;Path&gt;" class="s13" d="m233.4 128.5h-38.6v-100.5h38.6z"/>
+								<path id="&lt;Path&gt;" class="s14" d="m163.4 128.5h-37.5v-100.5h37.5z"/>
+							</g>
+							<path id="&lt;Path&gt;" class="s15" d="m231 53.8c0 24.4-23 44.1-51.3 44.1-28.4 0-51.4-19.7-51.4-44.1 0-24.4 23-44.2 51.4-44.2 28.3 0 51.3 19.8 51.3 44.2z"/>
+						</g>
+						<g id="&lt;Group&gt;" style="opacity: .7">
+							<g id="&lt;Group&gt;">
+								<path id="&lt;Path&gt;" class="s16" d="m222.5 78.2c0 23.7-19.2 42.9-42.8 42.9-23.7 0-42.9-19.2-42.9-42.9 0-23.6 19.2-42.8 42.9-42.8 23.6 0 42.8 19.2 42.8 42.8z"/>
+							</g>
+							<g id="&lt;Group&gt;">
+								<path id="&lt;Path&gt;" class="s17" d="m222.5 78.2c0 23.7-19.2 42.9-42.8 42.9-23.7 0-42.9-19.2-42.9-42.9 0-23.6 19.2-42.8 42.9-42.8 23.6 0 42.8 19.2 42.8 42.8z"/>
+							</g>
+							<use id="&lt;Image&gt;" href="#img1" transform="matrix(.48,0,0,.48,132.76,31.399)"/>
+						</g>
+					</g>
+				</g>
+				<g id="&lt;Group&gt;">
+					<g id="&lt;Group&gt;">
+						<path id="&lt;Path&gt;" class="s18" d="m156.3 133.7l1.3 2.6 2.9 0.4-2.1 2.1 0.5 2.8-2.6-1.3-2.6 1.3 0.5-2.8-2.1-2.1 2.9-0.4z"/>
+						<path id="&lt;Path&gt;" class="s18" d="m203.3 133.7l1.3 2.6 2.9 0.4-2.1 2.1 0.5 2.8-2.6-1.3-2.6 1.3 0.5-2.8-2.1-2.1 2.9-0.4z"/>
+						<path id="&lt;Path&gt;" class="s18" d="m140.5 122.1l1.3 2.6 2.9 0.4-2.1 2.1 0.5 2.8-2.6-1.3-2.6 1.3 0.5-2.8-2.1-2.1 2.9-0.4z"/>
+						<path id="&lt;Path&gt;" class="s18" d="m219.1 122.1l1.3 2.6 2.9 0.4-2.1 2.1 0.5 2.8-2.6-1.3-2.6 1.3 0.5-2.8-2.1-2.1 2.9-0.4z"/>
+						<path id="&lt;Path&gt;" class="s18" d="m179.8 136.1l2 4 4.4 0.6-3.2 3.2 0.8 4.3-4-2-3.9 2 0.7-4.3-3.2-3.2 4.4-0.6z"/>
+					</g>
+					<g id="&lt;Group&gt;">
+						<path id="&lt;Path&gt;" class="s19" d="m156.3 132.6l1.3 2.6 2.9 0.4-2.1 2 0.5 2.9-2.6-1.3-2.6 1.3 0.5-2.9-2.1-2 2.9-0.4z"/>
+						<path id="&lt;Path&gt;" class="s20" d="m203.3 132.6l1.3 2.6 2.9 0.4-2.1 2 0.5 2.9-2.6-1.3-2.6 1.3 0.5-2.9-2.1-2 2.9-0.4z"/>
+						<path id="&lt;Path&gt;" class="s21" d="m140.5 121l1.3 2.6 2.9 0.4-2.1 2.1 0.5 2.8-2.6-1.3-2.6 1.3 0.5-2.8-2.1-2.1 2.9-0.4z"/>
+						<path id="&lt;Path&gt;" class="s22" d="m219.1 121l1.3 2.6 2.9 0.4-2.1 2.1 0.5 2.8-2.6-1.3-2.6 1.3 0.5-2.8-2.1-2.1 2.9-0.4z"/>
+						<path id="&lt;Path&gt;" class="s23" d="m179.8 135l2 4 4.4 0.6-3.2 3.2 0.8 4.3-4-2-3.9 2 0.7-4.3-3.2-3.2 4.4-0.6z"/>
+					</g>
+				</g>
+			</g>
+		</g>
+		<text id="DELUXE
+" style="transform: matrix(2,0,0,2,178.19,15.799)" >
+			<tspan x="-25.3" y="0" class="t24" dx="0 2 2 2 2 2 2" >DELUXE
+</tspan>
+		</text>
+		<text id="LIMO ITALY
+" style="transform: matrix(2,0,0,2,177.563,178.238)" >
+			<tspan x="-50.2" y="0" class="t25" dx="0 2 2 2 2 2 2 2 2 2 2" >LIMO ITALY
+</tspan>
+		</text>
+	</g>
+</svg>

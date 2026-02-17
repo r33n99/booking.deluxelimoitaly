@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "lib": ["esnext", "dom"],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/stores/*": ["./src/stores/*"],
+      "@/plugins/*": ["./src/plugins/*"],
+      "@/types/*": ["./src/types/*"],
+      "~project_assets/*": [
+        "./src/assets/dgt/*",
+        "./src/assets/dli/*",
+        "./src/assets/rlt/*"
+      ]
+    },
+    "typeRoots": ["./node_modules/@types", "./types"],
+    "types": ["node"]
+  },
+  "include": ["src/**/*", "types/**/*"],
+  "exclude": ["node_modules"]
+}

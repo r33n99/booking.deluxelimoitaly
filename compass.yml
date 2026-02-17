@@ -1,0 +1,12 @@
+id: ari:cloud:compass:88a6fc6c-fb70-456b-82b0-1231679b9523:component/3568dfe4-0d47-4039-83af-fdd5c3e09e08/30e06840-37e3-4367-a2b4-8052f00796b3
+name: DLI frontend
+description: null
+ownerId: ari:cloud:identity::team/42ee824e-2991-4499-ac8b-1e3584a037e6
+configVersion: 1
+typeId: APPLICATION
+fields:
+  tier: 4
+links: []
+labels:
+  - bitbucket-import
+customFields: []

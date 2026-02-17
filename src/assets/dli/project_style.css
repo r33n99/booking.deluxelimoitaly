@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .summary_item_input,
+  .summary_item_wrapper input.dp__input {
+    @apply rounded-none border-x-0 border-b border-t-0 border-solid border-summary_active bg-transparent px-0 py-2 text-base/[17.6px] text-summary_active transition-none focus-within:outline-none hover:border-main focus:border-main focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:outline-none disabled:border-transparent disabled:text-background disabled:dark:text-white md:text-lg/[23.8px];
+  }
+}
+
+body .swiper-pagination-bullet-active {
+  @apply bg-main;
+}
+
+.vue-tel-input {
+  @apply focus-within:!border-main;
+}
+
+body .dp__action_select {
+  @apply bg-main hover:bg-[#ccf2c8];
+}
+
+body .dp__range_end,
+body .dp__range_start,
+body .dp__active_date {
+  @apply bg-main;
+}
+
+body .dp__today {
+  @apply border border-main;
+}
+
+body .dp__tp_inline_btn_bottom:hover .dp__tp_btn_in_r,
+body .dp__tp_inline_btn_top:hover .dp__tp_btn_in_r {
+  @apply bg-main;
+}
+
+body .dp__tp_inline_btn_bottom:hover .dp__tp_btn_in_l,
+body .dp__tp_inline_btn_top:hover .dp__tp_btn_in_l {
+  @apply bg-main;
+}
+
+.pac-container {
+  @apply dark:border-[#3D4043] dark:bg-background;
+}
+
+.pac-item {
+  @apply cursor-pointer rounded-full border-none bg-transparent p-5  duration-300 hover:bg-[#CCF2C8] hover:dark:bg-[#333639];
+}
+
+.pac-item .pac-item-query {
+  @apply text-[#878787];
+}
+
+.pac-item:hover .pac-item-query {
+  @apply text-black dark:text-white;
+}
+
+.location_icon path {
+  @apply fill-main !important;
+}
+
+/* Design 2.0 */
+
+.burger_icon rect {
+  @apply fill-background dark:fill-white;
+}
+
+.menu_close {
+  @apply border-none;
+}
+
+.menu_close rect {
+  @apply fill-background dark:fill-white;
+}
+
+.text-placeholder {
+  @apply text-main dark:text-main;
+}
+
+.home_form__toggler .button.active {
+  @apply !text-background;
+}
+
+.vti__dropdown-list {
+  @apply border !border-[#878787] bg-white shadow-none dark:bg-background;
+}
+
+.vti__dropdown-item.highlighted {
+  @apply dark:!bg-[#3D4043];
+}
+
+.vti__dropdown-item strong,
+.vti__country-code,
+.vti__dropdown-arrow,
+.vti__dropdown-item span {
+  @apply dark:!text-white;
+}
+
+.vti__dropdown.open {
+  @apply !bg-[#E8EDE8]/50 dark:!bg-background;
+}
+
+.vti__dropdown {
+  @apply border-[#878787] dark:border-[#3D4043];
+}
+
+.vue-tel-input input[type='tel'] {
+  @apply !border-[#878787] dark:!border-[#3D4043] dark:!bg-background;
+}
+
+.dp__input {
+  @apply dark:border-[#3D4043] dark:bg-background dark:placeholder:!text-white dark:placeholder:!opacity-100;
+}
+
+.summary_item_input,
+.summary_item_wrapper input.dp__input {
+  @apply border-dark_main text-dark_main dark:border-main dark:text-main;
+}
+
+.route_toggle {
+  @apply border border-[#878787] bg-white dark:border-[#3D4043] dark:bg-background;
+}
+
+.route_toggle svg path {
+  @apply !fill-background dark:!fill-main;
+}
+
+.go_back_button {
+  @apply border border-[#D4DFD3] bg-[#DDE5DC] px-3 dark:border-[#3D4043] dark:bg-background md:px-4;
+}
+
+.summary_item_input {
+  @apply w-full border-dark_main text-dark_main dark:border-main dark:text-main;
+}
+
+.vehicle_popup {
+  @apply flex-col;
+}
+
+.vehicle__name {
+  @apply dark:text-white;
+}
+
+.ellipse {
+  @apply bg-background dark:bg-white;
+}
+
+.swiper {
+  @apply rounded-[30px] dark:bg-[#1E1E20];
+}
+
+body .swiper-button-prev.swiper-button-disabled::after {
+  @apply text-[#C8C8C8] dark:text-white;
+}
+
+body .swiper-button-next::after,
+body .swiper-button-prev::after {
+  @apply text-dark_main dark:text-main;
+}
+
+.next_step_button:hover {
+  @apply border-dark_main !text-dark_main dark:border-main dark:!text-main;
+}
+
+.payment__price {
+  @apply text-dark_main dark:text-main;
+}
+
+.payment_form {
+  @apply bg-white p-4 dark:bg-[#333639] sm:p-8;
+}
+
+.Input {
+  @apply dark:!bg-background;
+}
+
+.summary_item_input {
+  @apply mt-2 rounded-[53px] border px-[22px] py-5 text-background dark:!border-[#3D4043] dark:!text-white/50 dark:placeholder:text-white/50;
+}
+
+/* .pac-target-input {
+  @apply rounded-none border-0 p-0 pb-2 border-b border-b-dark_main dark:!border-b-main text-dark_main dark:!text-main;
+} */
+
+.subscribe_text {
+  @apply text-[18px]/[138%] font-normal;
+}
+
+.summary-edit_item_input {
+  @apply rounded-none border-0 border-b !border-b-dark_main p-0 pb-2 !text-dark_main dark:!border-b-main dark:!text-main;
+}
+
+.p-Input .Input {
+  @apply !bg-[#E8EDE880];
+}
+
+.payment_timer_text,
+.account_toggler_text {
+  @apply text-background dark:text-[#F1F1F1];
+}
+
+.vehicle__service__text,
+.privacy_text {
+  @apply text-background dark:text-[#FFF];
+}
+
+.vehicle__capability {
+  @apply rounded-[32px] bg-[#C8C8C81A] px-3.5 py-[6px] dark:bg-[#3D4043];
+}
+
+.vehicle__capability svg path {
+  @apply fill-dark_main dark:fill-[#CCF2C8];
+}
+
+.vehicle__capability__text {
+  @apply text-dark_main dark:text-[#CCF2C8];
+}

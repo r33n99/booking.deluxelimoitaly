@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Website</title>
+</head>
+<body>
+<main>
+  <div id="counter"></div>
+  <div id="counter1"></div>
+  <script src="https://unpkg.com/centrifuge@5.0.1/dist/centrifuge.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script type="text/javascript">
+    const websocketUrl = 'wss://dev-api.italy.trustyone.dev:8427/connection/websocket'
+    const apiUrl = 'https://dev-api.italy.trustyone.dev/api'
+    const frontendUrl = 'https://dev.dli.trustyone.dev/?'
+
+    //create base axios instance
+    const axiosInstance = axios.create({
+      baseURL: apiUrl
+    })
+
+    const makeUrl = (baseUrl, params) => {
+      return `${baseUrl}${params}`
+    }
+
+    /**
+     * Initialize frame loader
+     * @param type
+     * @param id
+     */
+    const loader = (type = 'fleet', id = 'counter') => {
+
+      let iframeParams = []
+
+      axiosInstance
+        .post('/centrifuge/refresh-token')
+        .then(function(response) {
+          // console.log(
+          //   JSON.stringify(response.data.data.token).replaceAll('"', '')
+          // )
+          const centrifuge = new Centrifuge(websocketUrl, {
+            token: JSON.stringify(response.data.data.token).replaceAll(
+              '"',
+              ''
+            )
+          })
+
+          centrifuge
+            .on('connecting', function(ctx) {
+              // console.log(`connecting: ${ctx.code}, ${ctx.reason}`)
+            })
+            .on('connected', function(ctx) {
+              const para = document.createElement('iframe')
+              iframeParams.push(['ssid', ctx.client].join('='))
+
+              if (type === 'fleet') {
+                iframeParams.push(['fleet', 1].join('='))
+              }
+
+              para.src = makeUrl(frontendUrl, iframeParams.join('&'))
+              para.width = 752
+              para.height = 752
+              para.style.border = 'none'
+              para.style.width = '100%'
+              para.style.maxWidth = '800px'
+              para.style.margin = '0 auto'
+              para.scrolling = 'no'
+              const elem = document.getElementById(id)
+              elem.appendChild(para)
+              // console.log(`connected over ${ctx.transport}`)
+
+              const sub = centrifuge.newSubscription('dli-' + ctx.client)
+
+              sub
+                .on('publication', function(ctx) {
+                  if (ctx.data.event === 'fill_form') {
+                    window.location.replace(
+                      makeUrl(frontendUrl, ['ssid_cache', ctx.data.cache_id].join('='))
+                    )
+                  }
+                })
+                .on('subscribing', function(ctx) {
+                  // console.log(`subscribing: ${ctx.code}, ${ctx.reason}`)
+                })
+                .on('subscribed', function(ctx) {
+                  // console.log('subscribed', ctx)
+                })
+                .on('unsubscribed', function(ctx) {
+                  // console.log(`unsubscribed: ${ctx.code}, ${ctx.reason}`)
+                })
+                .subscribe()
+            })
+            .on('disconnected', function(ctx) {
+              // console.log(`disconnected: ${ctx.code}, ${ctx.reason}`)
+            })
+            .connect()
+        })
+    }
+
+
+    //call to make first form on BP
+    loader('main', 'counter')
+    loader('main', 'counter1')
+  </script>
+</main>
+</body>
+</html>

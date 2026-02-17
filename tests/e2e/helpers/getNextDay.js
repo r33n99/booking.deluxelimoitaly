@@ -1,0 +1,17 @@
+/**
+ * Возвращает строку с датой и временем следующего дня в формате 'YYYY-MM-DD HH:mm'.
+ * @returns {string} Строка, представляющая следующий день и текущее время.
+ * */
+
+export function getNextDayDateTime() {
+  const today = new Date();
+  today.setDate(today.getDate() + 1); // Увеличивает день на один
+
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  const hours = String(today.getHours()).padStart(2, '0');
+  const minutes = String(today.getMinutes()).padStart(2, '0');
+
+  return `${year}-${month}-${day} ${hours}:${minutes}`;
+}

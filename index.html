@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/images/%VITE_PROJECT_ALIAS%/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="description" content="Book your premium car service with private driver. Airport transfers, hourly service, and tours in Italy. Professional chauffeur service with luxury fleet.">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <title>%VITE_PROJECT_TITLE%</title>
+    <meta name="theme-color" content="#2B2D32">
+    <link rel="preconnect" href="https://maps.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://maps.googleapis.com">
+    <link rel="dns-prefetch" href="https://maps.gstatic.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://cdn-eu.pagesense.io">
+    <link rel="dns-prefetch" href="https://js.stripe.com">
+    <link rel="dns-prefetch" href="https://translate.googleapis.com">
+    <link rel="dns-prefetch" href="https://translate.google.com">
+    <link rel="preconnect" href="https://o4505664127631360.ingest.us.sentry.io" crossorigin>
+    <link rel="dns-prefetch" href="https://o4505664127631360.ingest.us.sentry.io">
+    <style>
+      /* Критический CSS для первого экрана главной страницы */
+      body{margin:0;padding:1rem;font-family:'Basier Circle',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;background-color:#E8EDE8;color:#2B2D32;box-sizing:border-box}html,body{position:relative;height:100%}#app{margin:0 auto;width:100%;max-width:1440px}.title{margin-top:1.25rem;font-size:2.5rem;line-height:2.75rem;font-weight:700;letter-spacing:.025em;min-height:2.75rem}@media (min-width:768px){.title{font-size:5rem;line-height:5.5rem;min-height:5.5rem}}.summary_title{margin-bottom:1.5rem;margin-top:0;display:block;font-size:1rem;line-height:1.1rem}@media (min-width:768px){.summary_title{font-size:1.5rem;line-height:1.65rem}}.button{display:flex;align-items:center;justify-content:center;border-radius:1.85rem;border:2px solid transparent;background-color:#5FD052;padding:.5rem .75rem;text-align:center;font-size:.875rem;line-height:1.15rem;font-weight:500;color:#2B2D32;transition:all .3s ease-in}@media (min-width:768px){.button{padding:.75rem 1rem;font-size:1.125rem;line-height:1.4875rem}}.button:hover{background-color:#CCF2C8}.home_form__toggler{display:flex;width:fit-content;flex-direction:row;align-items:center;justify-content:space-between;border-radius:2.65rem;border:1px solid #5FD052;padding:.25rem}@media (min-width:768px){.home_form__toggler{padding:.5rem}}.home_form__toggler .button{background-color:transparent;font-weight:400;color:#fff}.home_form__toggler .button.active{background-color:#CCF2C8;color:#2B2D32}.contact_form_wrapper{margin-top:1.5rem;padding:1rem 1rem 1.5rem;background-color:rgba(255,255,255,.8);border-radius:2.5rem}@media (min-width:768px){.contact_form_wrapper{margin-top:3rem;padding:2rem}}@media (prefers-color-scheme:dark){body{background-color:#1e1e20;color:#fff}.contact_form_wrapper{background-color:rgba(60,64,67,.8)}.home_form__toggler .button{color:#fff}.home_form__toggler .button.active{background-color:#CCF2C8;color:#2B2D32}}
+      .goog-te-banner-frame {
+        display: none !important;
+      }
+      body {
+        top: 0 !important;
+      }
+      #languageSwitcherElement {
+        opacity: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="languageSwitcherElement"></div>
+    <script type="module" src="/src/main.js"></script>
+
+    <script type="text/javascript">
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(function() {
+          (function(w,s){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src="https://cdn-eu.pagesense.io/js/drivingguidetours/%VITE_SEED_PAGESENSE%.js";var x=document.getElementsByTagName("script")[0];x.parentNode.insertBefore(e,x);})(window,"script");
+        }, { timeout: 3000 });
+      } else {
+        setTimeout(function() {
+          (function(w,s){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src="https://cdn-eu.pagesense.io/js/drivingguidetours/%VITE_SEED_PAGESENSE%.js";var x=document.getElementsByTagName("script")[0];x.parentNode.insertBefore(e,x);})(window,"script");
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>

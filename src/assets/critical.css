@@ -1,0 +1,152 @@
+/* Критический CSS для главной страницы - инлайнится в <head> */
+body {
+  margin: 0;
+  padding: 1rem;
+  font-family:
+    'Basier Circle',
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    Arial,
+    sans-serif;
+  background-color: #e8ede8;
+  color: #2b2d32;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+#app {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1440px;
+}
+
+/* Критические классы для главной страницы */
+.title {
+  margin-top: 1.25rem;
+  font-size: 2.5rem;
+  line-height: 2.75rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  min-height: 2.75rem;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 5rem;
+    line-height: 5.5rem;
+    min-height: 5.5rem;
+  }
+}
+
+.summary_title {
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+  display: block;
+  font-size: 1rem;
+  line-height: 1.1rem;
+}
+
+@media (min-width: 768px) {
+  .summary_title {
+    font-size: 1.5rem;
+    line-height: 1.65rem;
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.85rem;
+  border: 2px solid transparent;
+  background-color: #5fd052;
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.15rem;
+  font-weight: 500;
+  color: #2b2d32;
+  transition: all 0.3s ease-in;
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 0.75rem 1rem;
+    font-size: 1.125rem;
+    line-height: 1.4875rem;
+  }
+}
+
+.button:hover {
+  background-color: #ccf2c8;
+}
+
+.home_form__toggler {
+  display: flex;
+  width: fit-content;
+  flex-row: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 2.65rem;
+  border: 1px solid #5fd052;
+  padding: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .home_form__toggler {
+    padding: 0.5rem;
+  }
+}
+
+.home_form__toggler .button {
+  background-color: transparent;
+  font-weight: 400;
+  color: #fff;
+}
+
+.home_form__toggler .button.active {
+  background-color: #ccf2c8;
+  color: #2b2d32;
+}
+
+.contact_form_wrapper {
+  margin-top: 1.5rem;
+  padding: 1rem 1rem 1.5rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .contact_form_wrapper {
+    margin-top: 3rem;
+    padding: 2rem;
+  }
+}
+
+/* Dark mode базовые стили */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1e1e20;
+    color: #fff;
+  }
+
+  .contact_form_wrapper {
+    background-color: rgba(60, 64, 67, 0.8);
+  }
+
+  .home_form__toggler .button {
+    color: #fff;
+  }
+
+  .home_form__toggler .button.active {
+    background-color: #ccf2c8;
+    color: #2b2d32;
+  }
+}

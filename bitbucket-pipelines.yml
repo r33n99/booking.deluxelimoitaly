@@ -1,0 +1,597 @@
+image: atlassian/default-image:latest
+
+pipelines:
+  pull-requests:
+    '{feature/*}':
+      - parallel:
+          - step:
+              name: "Set Environment Feature DLI"
+              script:
+                - export VITE_PROJECT_ALIAS=dli
+                - export VITE_APP_API_INSP=https://dev-api.inspiritaly.trustyone.dev/api/v1
+                - echo VITE_APP_API_INSP="$VITE_APP_API_INSP" >> build-dli.env
+                - echo VITE_PROJECT_ALIAS="$VITE_PROJECT_ALIAS" >> build-dli.env
+                - export VITE_APP_STRIPE_KEY_INSP="pk_test_51QFZCWEFcBt0NGMG3Z8dSfot6WiiCdLvdyjtw2rMj8P6Ct6KWLJuaRcvzAywIhB3ox899bpCcOHw3t8YRjSy4wni00iPfOMnzO"
+                - echo VITE_APP_STRIPE_KEY_INSP="$VITE_APP_STRIPE_KEY_INSP" >> build-dli.env
+                - export NEED_BACKEND=`git log --format=%B -n 1 $BITBUCKET_COMMIT | grep "#need_backend" | wc -l`
+                - echo $NEED_BACKEND
+                - export TICKET_NAME=$(echo "$BITBUCKET_BRANCH" | grep --only-matching --extended-regexp '([A-Z]+)-[0-9]+')
+                - echo TICKET_NAME="$TICKET_NAME" >> build-dli.env
+                - export VITE_PROJECT_VERSION=$(echo "$TICKET_NAME"_"$BITBUCKET_COMMIT" | awk '{print tolower($0)}')
+                - echo VITE_PROJECT_VERSION="$VITE_PROJECT_VERSION" >> build-dli.env
+                - export DIR_NAME=$(echo "$TICKET_NAME"_"$VITE_PROJECT_ALIAS" | awk '{print tolower($0)}')
+                - echo DIR_NAME="$DIR_NAME" >> build-dli.env
+                - export DOMAIN_NAME=$(echo "$TICKET_NAME"."$VITE_PROJECT_ALIAS"."$DOMAIN_FAMILY" | awk '{print tolower($0)}')
+                - echo DOMAIN_NAME="$DOMAIN_NAME" >> build-dli.env
+                - >
+                  if [ $NEED_BACKEND == '1' ]; then
+                    export VITE_APP_API_URL=$(echo "https://$TICKET_NAME"-api."$PROJECT_FAMILY"."$DOMAIN_FAMILY/api" | awk '{print tolower($0)}')
+                  else
+                    export VITE_APP_API_URL=$(echo "https://dev-api.$PROJECT_FAMILY"."$DOMAIN_FAMILY/api" | awk '{print tolower($0)}')
+                  fi
+                - echo VITE_APP_API_URL="$VITE_APP_API_URL" >> build-dli.env
+                - export VITE_APP_URL=$(echo "https://$DOMAIN_NAME" | awk '{print tolower($0)}')
+                - echo VITE_APP_URL="$VITE_APP_URL" >> build-dli.env
+                - export FULL_DIR_NAME=$(echo "$DIR_FAMILY$DIR_NAME/dist")
+                - echo FULL_DIR_NAME="$FULL_DIR_NAME" >> build-dli.env
+                - export IN_CONTAINER_DIR_NAME=$(echo "/site/$DIR_NAME/dist")
+                - echo IN_CONTAINER_DIR_NAME="$IN_CONTAINER_DIR_NAME" >> build-dli.env
+                - echo $TICKET_NAME
+                - echo $VITE_PROJECT_VERSION
+                - echo $DIR_NAME
+                - echo $DIR_FAMILY$DIR_NAME
+                - echo $VITE_APP_URL
+                - echo $VITE_APP_API_URL
+                - echo $FULL_DIR_NAME
+              artifacts:
+                - build-dli.env
+          - step:
+              name: "Set Environment Feature DGT"
+              script:
+                - export VITE_PROJECT_ALIAS=dgt
+                - export VITE_APP_API_INSP=https://dev-api.inspiritaly.trustyone.dev/api/v1
+                - echo VITE_APP_API_INSP="$VITE_APP_API_INSP" >> build-dgt.env
+                - echo VITE_PROJECT_ALIAS="$VITE_PROJECT_ALIAS" >> build-dgt.env
+                - export VITE_APP_STRIPE_KEY_INSP="pk_test_51QFZCWEFcBt0NGMG3Z8dSfot6WiiCdLvdyjtw2rMj8P6Ct6KWLJuaRcvzAywIhB3ox899bpCcOHw3t8YRjSy4wni00iPfOMnzO"
+                - echo VITE_APP_STRIPE_KEY_INSP="$VITE_APP_STRIPE_KEY_INSP" >> build-dgt.env
+                - export NEED_BACKEND=`git log --format=%B -n 1 $BITBUCKET_COMMIT | grep "#need_backend" | wc -l`
+                - echo $NEED_BACKEND
+                - export TICKET_NAME=$(echo "$BITBUCKET_BRANCH" | grep --only-matching --extended-regexp '([A-Z]+)-[0-9]+')
+                - echo TICKET_NAME="$TICKET_NAME" >> build-dgt.env
+                - export VITE_PROJECT_VERSION=$(echo "$TICKET_NAME"_"$BITBUCKET_COMMIT" | awk '{print tolower($0)}')
+                - echo VITE_PROJECT_VERSION="$VITE_PROJECT_VERSION" >> build-dgt.env
+                - export DIR_NAME=$(echo "$TICKET_NAME"_"$VITE_PROJECT_ALIAS" | awk '{print tolower($0)}')
+                - echo DIR_NAME="$DIR_NAME" >> build-dgt.env
+                - export DOMAIN_NAME=$(echo "$TICKET_NAME"."$VITE_PROJECT_ALIAS"."$DOMAIN_FAMILY" | awk '{print tolower($0)}')
+                - echo DOMAIN_NAME="$DOMAIN_NAME" >> build-dgt.env
+                - >
+                  if [ $NEED_BACKEND == '1' ]; then
+                    export VITE_APP_API_URL=$(echo "https://$TICKET_NAME"-api."$PROJECT_FAMILY"."$DOMAIN_FAMILY/api" | awk '{print tolower($0)}')
+                  else
+                    export VITE_APP_API_URL=$(echo "https://dev-api.$PROJECT_FAMILY"."$DOMAIN_FAMILY/api" | awk '{print tolower($0)}')
+                  fi
+                - echo VITE_APP_API_URL="$VITE_APP_API_URL" >> build-dgt.env
+                - export VITE_APP_URL=$(echo "https://$DOMAIN_NAME" | awk '{print tolower($0)}')
+                - echo VITE_APP_URL="$VITE_APP_URL" >> build-dgt.env
+                - export FULL_DIR_NAME=$(echo "$DIR_FAMILY$DIR_NAME/dist")
+                - echo FULL_DIR_NAME="$FULL_DIR_NAME" >> build-dgt.env
+                - export IN_CONTAINER_DIR_NAME=$(echo "/site/$DIR_NAME/dist")
+                - echo IN_CONTAINER_DIR_NAME="$IN_CONTAINER_DIR_NAME" >> build-dgt.env
+                - echo $TICKET_NAME
+                - echo $VITE_PROJECT_VERSION
+                - echo $DIR_NAME
+                - echo $DIR_FAMILY$DIR_NAME
+                - echo $VITE_APP_URL
+                - echo $VITE_APP_API_URL
+                - echo $FULL_DIR_NAME
+              artifacts:
+                - build-dgt.env
+          - step:
+              name: "Set Environment Feature RLT"
+              script:
+                - export VITE_PROJECT_ALIAS=rlt
+                - export VITE_APP_API_INSP=https://dev-api.inspiritaly.trustyone.dev/api/v1
+                - echo VITE_APP_API_INSP="$VITE_APP_API_INSP" >> build-rlt.env
+                - echo VITE_PROJECT_ALIAS="$VITE_PROJECT_ALIAS" >> build-rlt.env
+                - export VITE_APP_STRIPE_KEY_INSP="pk_test_51QFZCWEFcBt0NGMG3Z8dSfot6WiiCdLvdyjtw2rMj8P6Ct6KWLJuaRcvzAywIhB3ox899bpCcOHw3t8YRjSy4wni00iPfOMnzO"
+                - echo VITE_APP_STRIPE_KEY_INSP="$VITE_APP_STRIPE_KEY_INSP" >> build-rlt.env
+                - export NEED_BACKEND=`git log --format=%B -n 1 $BITBUCKET_COMMIT | grep "#need_backend" | wc -l`
+                - echo $NEED_BACKEND
+                - export TICKET_NAME=$(echo "$BITBUCKET_BRANCH" | grep --only-matching --extended-regexp '([A-Z]+)-[0-9]+')
+                - echo TICKET_NAME="$TICKET_NAME" >> build-rlt.env
+                - export VITE_PROJECT_VERSION=$(echo "$TICKET_NAME"_"$BITBUCKET_COMMIT" | awk '{print tolower($0)}')
+                - echo VITE_PROJECT_VERSION="$VITE_PROJECT_VERSION" >> build-rlt.env
+                - export DIR_NAME=$(echo "$TICKET_NAME"_"$VITE_PROJECT_ALIAS" | awk '{print tolower($0)}')
+                - echo DIR_NAME="$DIR_NAME" >> build-rlt.env
+                - export DOMAIN_NAME=$(echo "$TICKET_NAME"."$VITE_PROJECT_ALIAS"."$DOMAIN_FAMILY" | awk '{print tolower($0)}')
+                - echo DOMAIN_NAME="$DOMAIN_NAME" >> build-rlt.env
+                - >
+                  if [ $NEED_BACKEND == '1' ]; then
+                    export VITE_APP_API_URL=$(echo "https://$TICKET_NAME"-api."$PROJECT_FAMILY"."$DOMAIN_FAMILY/api" | awk '{print tolower($0)}')
+                  else
+                    export VITE_APP_API_URL=$(echo "https://dev-api.$PROJECT_FAMILY"."$DOMAIN_FAMILY/api" | awk '{print tolower($0)}')
+                  fi
+                - echo VITE_APP_API_URL="$VITE_APP_API_URL" >> build-rlt.env
+                - export VITE_APP_URL=$(echo "https://$DOMAIN_NAME" | awk '{print tolower($0)}')
+                - echo VITE_APP_URL="$VITE_APP_URL" >> build-rlt.env
+                - export FULL_DIR_NAME=$(echo "$DIR_FAMILY$DIR_NAME/dist")
+                - echo FULL_DIR_NAME="$FULL_DIR_NAME" >> build-rlt.env
+                - export IN_CONTAINER_DIR_NAME=$(echo "/site/$DIR_NAME/dist")
+                - echo IN_CONTAINER_DIR_NAME="$IN_CONTAINER_DIR_NAME" >> build-rlt.env
+                - echo $TICKET_NAME
+                - echo $VITE_PROJECT_VERSION
+                - echo $DIR_NAME
+                - echo $DIR_FAMILY$DIR_NAME
+                - echo $VITE_APP_URL
+                - echo $VITE_APP_API_URL
+                - echo $FULL_DIR_NAME
+              artifacts:
+                - build-rlt.env
+
+      - step:
+          name: Add Host For Domain RLT
+          script:
+            - export $(cat build-rlt.env | xargs)
+            - pipe: atlassian/ssh-run:0.7.1
+              variables:
+                SSH_USER: $SSH_USER_DEV
+                SERVER: $SSH_HOST_DEV
+                MODE: 'command'
+                COMMAND: |
+                  cd $CADDY_DIRECTORY
+                  bash makedomain.sh $DOMAIN_NAME $DIR_NAME $FULL_DIR_NAME
+      - step:
+          name: Add Host For Domain DGT
+          script:
+            - export $(cat build-dgt.env | xargs)
+            - pipe: atlassian/ssh-run:0.7.1
+              variables:
+                SSH_USER: $SSH_USER_DEV
+                SERVER: $SSH_HOST_DEV
+                MODE: 'command'
+                COMMAND: |
+                  cd $CADDY_DIRECTORY
+                  bash makedomain.sh $DOMAIN_NAME $DIR_NAME $FULL_DIR_NAME
+      - step:
+          name: Add Host For Domain DLI
+          script:
+            - export $(cat build-dli.env | xargs)
+            - pipe: atlassian/ssh-run:0.7.1
+              variables:
+                SSH_USER: $SSH_USER_DEV
+                SERVER: $SSH_HOST_DEV
+                MODE: 'command'
+                COMMAND: |
+                  cd $CADDY_DIRECTORY
+                  bash makedomain.sh $DOMAIN_NAME $DIR_NAME $FULL_DIR_NAME
+      - parallel:
+          - step:
+              image: node:18.17.0
+              name: "Build & Deploy Feature Version DLI"
+              deployment: test_dli
+              caches:
+                - node
+              script:
+                - export $(cat build-dli.env | xargs)
+                - export SENTRY_HTTP_TIMEOUT=120
+                - cp robots.txt public/robots.txt
+                - npm install
+                - npm run stage
+                - pipe: atlassian/scp-deploy:1.5.0
+                  variables:
+                    USER: $SSH_USER_DEV
+                    SERVER: $SSH_HOST_DEV
+                    REMOTE_PATH: '${FULL_DIR_NAME}'
+                    LOCAL_PATH: 'dist/*'
+                    # SSH_KEY: '<string>' # Optional.
+                    # EXTRA_ARGS: '<string>' # Optional.
+                    # DEBUG: '<boolean>' # Optional.
+          - step:
+              image: node:18.17.0
+              name: "Build & Deploy Feature Version DGT"
+              deployment: test_dgt
+              caches:
+                - node
+              script:
+                - export $(cat build-dgt.env | xargs)
+                - export SENTRY_HTTP_TIMEOUT=120
+                - cp robots.txt public/robots.txt
+                - npm install
+                - npm run stage
+                - pipe: atlassian/scp-deploy:1.5.0
+                  variables:
+                    USER: $SSH_USER_DEV
+                    SERVER: $SSH_HOST_DEV
+                    REMOTE_PATH: '${FULL_DIR_NAME}'
+                    LOCAL_PATH: 'dist/*'
+                    # SSH_KEY: '<string>' # Optional.
+                    #EXTRA_ARGS: ['-r'] # Optional.
+                    # DEBUG: '<boolean>' # Optional.
+          - step:
+              image: node:18.17.0
+              name: "Build & Deploy Feature Version RLT"
+              deployment: test_rlt
+              caches:
+                - node
+              script:
+                - export $(cat build-rlt.env | xargs)
+                - export SENTRY_HTTP_TIMEOUT=120
+                - cp robots.txt public/robots.txt
+                - npm install
+                - npm run stage
+                - pipe: atlassian/scp-deploy:1.5.0
+                  variables:
+                    USER: $SSH_USER_DEV
+                    SERVER: $SSH_HOST_DEV
+                    REMOTE_PATH: '${FULL_DIR_NAME}'
+                    LOCAL_PATH: 'dist/*'
+                    # SSH_KEY: '<string>' # Optional.
+                    # EXTRA_ARGS: '<string>' # Optional.
+                    # DEBUG: '<boolean>' # Optional.
+  branches:
+    '{dev}':
+      - parallel:
+        - step:
+            name: "Set Environment Dev DLI"
+            clone:
+              depth: full
+            script:
+              - export VITE_PROJECT_ALIAS=dli
+              - export VITE_APP_API_INSP=https://dev-api.inspiritaly.trustyone.dev/api/v1
+              - echo VITE_APP_API_INSP="$VITE_APP_API_INSP" >> build-dli.env
+              - echo VITE_PROJECT_ALIAS="$VITE_PROJECT_ALIAS" >> build-dli.env
+              - export VITE_APP_STRIPE_KEY_INSP="pk_test_51QFZCWEFcBt0NGMG3Z8dSfot6WiiCdLvdyjtw2rMj8P6Ct6KWLJuaRcvzAywIhB3ox899bpCcOHw3t8YRjSy4wni00iPfOMnzO"
+              - echo VITE_APP_STRIPE_KEY_INSP="$VITE_APP_STRIPE_KEY_INSP" >> build-dli.env
+              - export TICKET_NAME=dev
+              - echo TICKET_NAME="$TICKET_NAME" >> build-dli.env
+              - export SOURCE_NAME=`git cat-file -p $BITBUCKET_COMMIT | grep parent | awk 'END{print "git branch --remotes --contains " $2 }' | sh | grep feature | grep --only-matching --extended-regexp '([A-Z]+)-([0-9]+)'`
+              - echo SOURCE_NAME="$SOURCE_NAME" >> build-dli.env
+              - export VITE_PROJECT_VERSION=$(echo "$TICKET_NAME"_"$BITBUCKET_COMMIT" | awk '{print tolower($0)}')
+              - echo VITE_PROJECT_VERSION="$VITE_PROJECT_VERSION" >> build-dli.env
+              - export DIR_NAME=$(echo "$TICKET_NAME"_"$VITE_PROJECT_ALIAS" | awk '{print tolower($0)}')
+              - echo DIR_NAME="$DIR_NAME" >> build-dli.env
+              - export DOMAIN_NAME=$(echo "$TICKET_NAME"."$VITE_PROJECT_ALIAS"."$DOMAIN_FAMILY" | awk '{print tolower($0)}')
+              - echo DOMAIN_NAME="$DOMAIN_NAME" >> build-dli.env
+              - export VITE_APP_API_URL=$(echo "https://$TICKET_NAME"-api."$PROJECT_FAMILY"."$DOMAIN_FAMILY/api" | awk '{print tolower($0)}')
+              - echo VITE_APP_API_URL="$VITE_APP_API_URL" >> build-dli.env
+              - export VITE_APP_URL=$(echo "https://$DOMAIN_NAME" | awk '{print tolower($0)}')
+              - echo VITE_APP_URL="$VITE_APP_URL" >> build-dli.env
+              - export FULL_DIR_NAME=$(echo "$DIR_FAMILY$DIR_NAME/dist")
+              - echo FULL_DIR_NAME="$FULL_DIR_NAME" >> build-dli.env
+              - export IN_CONTAINER_DIR_NAME=$(echo "/site/$DIR_NAME/dist")
+              - echo IN_CONTAINER_DIR_NAME="$IN_CONTAINER_DIR_NAME" >> build-dli.env
+              - echo $TICKET_NAME
+              - echo $SOURCE_NAME
+              - echo $VITE_PROJECT_VERSION
+              - echo $DIR_NAME
+              - echo $DIR_FAMILY$DIR_NAME
+              - echo $VITE_APP_URL
+              - echo $VITE_APP_API_URL
+              - echo $FULL_DIR_NAME
+            artifacts:
+              - build-dli.env
+        - step:
+            name: "Set Environment Dev DGT"
+            clone:
+              depth: full
+            script:
+              - export VITE_PROJECT_ALIAS=dgt
+              - export VITE_APP_API_INSP=https://dev-api.inspiritaly.trustyone.dev/api/v1
+              - echo VITE_APP_API_INSP="$VITE_APP_API_INSP" >> build-dgt.env
+              - echo VITE_PROJECT_ALIAS="$VITE_PROJECT_ALIAS" >> build-dgt.env
+              - export VITE_APP_STRIPE_KEY_INSP="pk_test_51QFZCWEFcBt0NGMG3Z8dSfot6WiiCdLvdyjtw2rMj8P6Ct6KWLJuaRcvzAywIhB3ox899bpCcOHw3t8YRjSy4wni00iPfOMnzO"
+              - echo VITE_APP_STRIPE_KEY_INSP="$VITE_APP_STRIPE_KEY_INSP" >> build-dgt.env
+              - export TICKET_NAME=dev
+              - echo TICKET_NAME="$TICKET_NAME" >> build-dgt.env
+              - export SOURCE_NAME=`git cat-file -p $BITBUCKET_COMMIT | grep parent | awk 'END{print "git branch --remotes --contains " $2 }' | sh | grep feature | grep --only-matching --extended-regexp '([A-Z]+)-([0-9]+)'`
+              - echo SOURCE_NAME="$SOURCE_NAME" >> build-dgt.env
+              - export VITE_PROJECT_VERSION=$(echo "$TICKET_NAME"_"$BITBUCKET_COMMIT" | awk '{print tolower($0)}')
+              - echo VITE_PROJECT_VERSION="$VITE_PROJECT_VERSION" >> build-dgt.env
+              - export DIR_NAME=$(echo "$TICKET_NAME"_"$VITE_PROJECT_ALIAS" | awk '{print tolower($0)}')
+              - echo DIR_NAME="$DIR_NAME" >> build-dgt.env
+              - export DOMAIN_NAME=$(echo "$TICKET_NAME"."$VITE_PROJECT_ALIAS"."$DOMAIN_FAMILY" | awk '{print tolower($0)}')
+              - echo DOMAIN_NAME="$DOMAIN_NAME" >> build-dgt.env
+              - export VITE_APP_API_URL=$(echo "https://$TICKET_NAME"-api."$PROJECT_FAMILY"."$DOMAIN_FAMILY/api" | awk '{print tolower($0)}')
+              - echo VITE_APP_API_URL="$VITE_APP_API_URL" >> build-dgt.env
+              - export VITE_APP_URL=$(echo "https://$DOMAIN_NAME" | awk '{print tolower($0)}')
+              - echo VITE_APP_URL="$VITE_APP_URL" >> build-dgt.env
+              - export FULL_DIR_NAME=$(echo "$DIR_FAMILY$DIR_NAME/dist")
+              - echo FULL_DIR_NAME="$FULL_DIR_NAME" >> build-dgt.env
+              - export IN_CONTAINER_DIR_NAME=$(echo "/site/$DIR_NAME/dist")
+              - echo IN_CONTAINER_DIR_NAME="$IN_CONTAINER_DIR_NAME" >> build-dgt.env
+              - echo $TICKET_NAME
+              - echo $SOURCE_NAME
+              - echo $VITE_PROJECT_VERSION
+              - echo $DIR_NAME
+              - echo $DIR_FAMILY$DIR_NAME
+              - echo $VITE_APP_URL
+              - echo $VITE_APP_API_URL
+              - echo $FULL_DIR_NAME
+            artifacts:
+              - build-dgt.env
+              
+        - step:
+            name: "Set Environment Dev RLT"
+            clone:
+              depth: full
+            script:
+              - export VITE_PROJECT_ALIAS=rlt
+              - export VITE_APP_API_INSP=https://dev-api.inspiritaly.trustyone.dev/api/v1
+              - echo VITE_APP_API_INSP="$VITE_APP_API_INSP" >> build-rlt.env
+              - echo VITE_PROJECT_ALIAS="$VITE_PROJECT_ALIAS" >> build-rlt.env
+              - export VITE_APP_STRIPE_KEY_INSP="pk_test_51QFZCWEFcBt0NGMG3Z8dSfot6WiiCdLvdyjtw2rMj8P6Ct6KWLJuaRcvzAywIhB3ox899bpCcOHw3t8YRjSy4wni00iPfOMnzO"
+              - echo VITE_APP_STRIPE_KEY_INSP="$VITE_APP_STRIPE_KEY_INSP" >> build-rlt.env
+              - export TICKET_NAME=dev
+              - echo TICKET_NAME="$TICKET_NAME" >> build-rlt.env
+              - export SOURCE_NAME=`git cat-file -p $BITBUCKET_COMMIT | grep parent | awk 'END{print "git branch --remotes --contains " $2 }' | sh | grep feature | grep --only-matching --extended-regexp '([A-Z]+)-([0-9]+)'`
+              - echo SOURCE_NAME="$SOURCE_NAME" >> build-rlt.env
+              - export VITE_PROJECT_VERSION=$(echo "$TICKET_NAME"_"$BITBUCKET_COMMIT" | awk '{print tolower($0)}')
+              - echo VITE_PROJECT_VERSION="$VITE_PROJECT_VERSION" >> build-rlt.env
+              - export DIR_NAME=$(echo "$TICKET_NAME"_"$VITE_PROJECT_ALIAS" | awk '{print tolower($0)}')
+              - echo DIR_NAME="$DIR_NAME" >> build-rlt.env
+              - export DOMAIN_NAME=$(echo "$TICKET_NAME"."$VITE_PROJECT_ALIAS"."$DOMAIN_FAMILY" | awk '{print tolower($0)}')
+              - echo DOMAIN_NAME="$DOMAIN_NAME" >> build-rlt.env
+              - export VITE_APP_API_URL=$(echo "https://$TICKET_NAME"-api."$PROJECT_FAMILY"."$DOMAIN_FAMILY/api" | awk '{print tolower($0)}')
+              - echo VITE_APP_API_URL="$VITE_APP_API_URL" >> build-rlt.env
+              - export VITE_APP_URL=$(echo "https://$DOMAIN_NAME" | awk '{print tolower($0)}')
+              - echo VITE_APP_URL="$VITE_APP_URL" >> build-rlt.env
+              - export FULL_DIR_NAME=$(echo "$DIR_FAMILY$DIR_NAME/dist")
+              - echo FULL_DIR_NAME="$FULL_DIR_NAME" >> build-rlt.env
+              - export IN_CONTAINER_DIR_NAME=$(echo "/site/$DIR_NAME/dist")
+              - echo IN_CONTAINER_DIR_NAME="$IN_CONTAINER_DIR_NAME" >> build-rlt.env
+              - echo $TICKET_NAME
+              - echo $SOURCE_NAME
+              - echo $VITE_PROJECT_VERSION
+              - echo $DIR_NAME
+              - echo $DIR_FAMILY$DIR_NAME
+              - echo $VITE_APP_URL
+              - echo $VITE_APP_API_URL
+              - echo $FULL_DIR_NAME
+            artifacts:
+              - build-rlt.env
+      - parallel:
+          - step:
+              name: "Clean Data DLI"
+              script:
+                - export $(cat build-dli.env | xargs)
+                - pipe: atlassian/ssh-run:0.7.1
+                  variables:
+                    SSH_USER: $SSH_USER_DEV
+                    SERVER: $SSH_HOST_DEV
+                    MODE: 'command'
+                    COMMAND: |
+                      cd $CADDY_DIRECTORY
+                      bash removedomain.sh $VITE_PROJECT_ALIAS $SOURCE_NAME $VITE_PROJECT_ALIAS
+          - step:
+              name: "Clean Data RLT"
+              script:
+                - export $(cat build-rlt.env | xargs)
+                - pipe: atlassian/ssh-run:0.7.1
+                  variables:
+                    SSH_USER: $SSH_USER_DEV
+                    SERVER: $SSH_HOST_DEV
+                    MODE: 'command'
+                    COMMAND: |
+                      cd $CADDY_DIRECTORY
+                      bash removedomain.sh $VITE_PROJECT_ALIAS $SOURCE_NAME $VITE_PROJECT_ALIAS
+          - step:
+              name: "Clean Data DGT"
+              script:
+                - export $(cat build-dgt.env | xargs)
+                - pipe: atlassian/ssh-run:0.7.1
+                  variables:
+                    SSH_USER: $SSH_USER_DEV
+                    SERVER: $SSH_HOST_DEV
+                    MODE: 'command'
+                    COMMAND: |
+                      cd $CADDY_DIRECTORY
+                      bash removedomain.sh $VITE_PROJECT_ALIAS $SOURCE_NAME $VITE_PROJECT_ALIAS 
+      - parallel:
+          - step:
+              image: node:18.17.0
+              name: "Build & Deploy Development Version DLI"
+              deployment: staging_dli
+              caches:
+                - node
+              script:
+                - export $(cat build-dli.env | xargs)
+                - cp robots.txt public/robots.txt
+                - npm install
+                - npm run stage
+                - pipe: atlassian/scp-deploy:1.5.0
+                  variables:
+                    USER: $SSH_USER_DEV
+                    SERVER: $SSH_HOST_DEV
+                    REMOTE_PATH: '${FULL_DIR_NAME}'
+                    LOCAL_PATH: 'dist/*'
+                    # SSH_KEY: '<string>' # Optional.
+                    # EXTRA_ARGS: '<string>' # Optional.
+                    # DEBUG: '<boolean>' # Optional.
+          - step:
+              image: node:18.17.0
+              name: "Build & Deploy Development Version RLT"
+              deployment: staging_rlt
+              caches:
+                - node
+              script:
+                - export $(cat build-rlt.env | xargs)
+                - export SENTRY_HTTP_TIMEOUT=120
+                - cp robots.txt public/robots.txt
+                - npm install
+                - npm run stage
+                - pipe: atlassian/scp-deploy:1.5.0
+                  variables:
+                    USER: $SSH_USER_DEV
+                    SERVER: $SSH_HOST_DEV
+                    REMOTE_PATH: '${FULL_DIR_NAME}'
+                    LOCAL_PATH: 'dist/*'
+                    # SSH_KEY: '<string>' # Optional.
+                    # EXTRA_ARGS: '<string>' # Optional.
+                    # DEBUG: '<boolean>' # Optional.
+          - step:
+              image: node:18.17.0
+              name: "Build & Deploy Development Version DGT"
+              deployment: staging_dgt
+              caches:
+                - node
+              script:
+                - export $(cat build-dgt.env | xargs)
+                - cp robots.txt public/robots.txt
+                - npm install
+                - npm run stage
+                - pipe: atlassian/scp-deploy:1.5.0
+                  variables:
+                    USER: $SSH_USER_DEV
+                    SERVER: $SSH_HOST_DEV
+                    REMOTE_PATH: '${FULL_DIR_NAME}'
+                    LOCAL_PATH: 'dist/*'
+                    # SSH_KEY: '<string>' # Optional.
+                    # EXTRA_ARGS: '<string>' # Optional.
+                    # DEBUG: '<boolean>' # Optional.
+    '{master}':
+      - parallel:
+          - step:
+              name: "Set Environment Master DLI"
+              clone:
+                depth: full
+              script:
+                - export VITE_PROJECT_ALIAS=dli
+                - export VITE_APP_API_INSP=https://api.inspiritaly.com/api/v1
+                - echo VITE_APP_API_INSP="$VITE_APP_API_INSP" >> build-dli.env
+                - echo VITE_APP_STRIPE_KEY_INSP="$VITE_APP_STRIPE_KEY_INSP" >> build-dli.env
+                - echo VITE_PROJECT_ALIAS="$VITE_PROJECT_ALIAS" >> build-dli.env
+                - export TICKET_NAME=$(git cat-file -p $BITBUCKET_COMMIT | grep parent | awk 'END{print "git branch --remotes --contains " $2 }' | sh | grep release | grep --only-matching --extended-regexp '([0-9]+)\.([0-9]+)\.([0-9]+)')
+                - echo TICKET_NAME="$TICKET_NAME" >> build-dli.env
+                - export VITE_PROJECT_VERSION=$(echo "$TICKET_NAME" | awk '{print tolower($0)}')
+                - echo VITE_PROJECT_VERSION="$VITE_PROJECT_VERSION" >> build-dli.env
+                - export DIR_NAME=$(echo "$VITE_PROJECT_ALIAS"_master | awk '{print tolower($0)}')
+                - echo DIR_NAME="$DIR_NAME" >> build-dli.env
+                - export FULL_DIR_NAME=$(echo "$DIR_FAMILY_PROD$DIR_NAME/dist")
+                - echo FULL_DIR_NAME="$FULL_DIR_NAME" >> build-dli.env
+                - echo $TICKET_NAME
+                - echo $VITE_PROJECT_VERSION
+                - echo $DIR_NAME
+                - echo $DIR_FAMILY_PROD$DIR_NAME
+                - echo $VITE_APP_URL
+                - echo $VITE_APP_API_URL
+                - echo $FULL_DIR_NAME
+                - printenv
+              artifacts:
+                - build-dli.env
+          - step:
+              name: "Set Environment Master DGT"
+              clone:
+                depth: full
+              script:
+                - export VITE_PROJECT_ALIAS=dgt
+                - export VITE_APP_API_INSP=https://api.inspiritaly.com/api/v1
+                - echo VITE_APP_API_INSP="$VITE_APP_API_INSP" >> build-dgt.env
+                - echo VITE_APP_STRIPE_KEY_INSP="$VITE_APP_STRIPE_KEY_INSP" >> build-dgt.env
+                - echo VITE_PROJECT_ALIAS="$VITE_PROJECT_ALIAS" >> build-dgt.env
+                - export TICKET_NAME=$(git cat-file -p $BITBUCKET_COMMIT | grep parent | awk 'END{print "git branch --remotes --contains " $2 }' | sh | grep release | grep --only-matching --extended-regexp '([0-9]+)\.([0-9]+)\.([0-9]+)')
+                - echo TICKET_NAME="$TICKET_NAME" >> build-dgt.env
+                - export VITE_PROJECT_VERSION=$(echo "$TICKET_NAME" | awk '{print tolower($0)}')
+                - echo VITE_PROJECT_VERSION="$VITE_PROJECT_VERSION" >> build-dgt.env
+                - export DIR_NAME=$(echo "$VITE_PROJECT_ALIAS"_master | awk '{print tolower($0)}')
+                - echo DIR_NAME="$DIR_NAME" >> build-dgt.env
+                - export FULL_DIR_NAME=$(echo "$DIR_FAMILY_PROD$DIR_NAME/dist")
+                - echo FULL_DIR_NAME="$FULL_DIR_NAME" >> build-dgt.env
+                - echo $TICKET_NAME
+                - echo $VITE_PROJECT_VERSION
+                - echo $DIR_NAME
+                - echo $DIR_FAMILY_PROD$DIR_NAME
+                - echo $VITE_APP_URL
+                - echo $VITE_APP_API_URL
+                - echo $FULL_DIR_NAME
+                - printenv
+              artifacts:
+                - build-dgt.env
+          - step:
+              name: "Set Environment Master RLT"
+              clone:
+                depth: full
+              script:
+                - export VITE_PROJECT_ALIAS=rlt
+                - export VITE_APP_API_INSP=https://api.inspiritaly.com/api/v1
+                - echo VITE_APP_API_INSP="$VITE_APP_API_INSP" >> build-rlt.env
+                - echo VITE_APP_STRIPE_KEY_INSP="$VITE_APP_STRIPE_KEY_INSP" >> build-rlt.env
+                - echo VITE_PROJECT_ALIAS="$VITE_PROJECT_ALIAS" >> build-rlt.env
+                - export TICKET_NAME=$(git cat-file -p $BITBUCKET_COMMIT | grep parent | awk 'END{print "git branch --remotes --contains " $2 }' | sh | grep release | grep --only-matching --extended-regexp '([0-9]+)\.([0-9]+)\.([0-9]+)')
+                - echo TICKET_NAME="$TICKET_NAME" >> build-rlt.env
+                - export VITE_PROJECT_VERSION=$(echo "$TICKET_NAME" | awk '{print tolower($0)}')
+                - echo VITE_PROJECT_VERSION="$VITE_PROJECT_VERSION" >> build-rlt.env
+                - export DIR_NAME=$(echo "$VITE_PROJECT_ALIAS"_master | awk '{print tolower($0)}')
+                - echo DIR_NAME="$DIR_NAME" >> build-rlt.env
+                - export FULL_DIR_NAME=$(echo "$DIR_FAMILY_PROD$DIR_NAME/dist")
+                - echo FULL_DIR_NAME="$FULL_DIR_NAME" >> build-rlt.env
+                - echo $TICKET_NAME
+                - echo $VITE_PROJECT_VERSION
+                - echo $DIR_NAME
+                - echo $DIR_FAMILY_PROD$DIR_NAME
+                - echo $VITE_APP_URL
+                - echo $VITE_APP_API_URL
+                - echo $FULL_DIR_NAME
+                - printenv
+              artifacts:
+                - build-rlt.env
+      - parallel:
+          - step:
+              image: node:18.17.0
+              name: "Build & Deploy Production Version DLI"
+              deployment: production_dli
+              caches:
+                - node
+              script:
+                - export $(cat build-dli.env | xargs)
+                - export SENTRY_HTTP_TIMEOUT=120
+                - npm install
+                - npm run build
+                - pipe: atlassian/scp-deploy:1.5.0
+                  variables:
+                    USER: $SSH_USER_PROD
+                    SERVER: $SSH_HOST_PROD
+                    REMOTE_PATH: '${FULL_DIR_NAME}'
+                    LOCAL_PATH: 'dist/*'
+                    # SSH_KEY: '<string>' # Optional.
+                    # EXTRA_ARGS: '<string>' # Optional.
+                    # DEBUG: '<boolean>' # Optional.
+          - step:
+              image: node:18.17.0
+              name: "Build & Deploy Production Version DGT"
+              deployment: production_dgt
+              caches:
+                - node
+              script:
+                - export $(cat build-dgt.env | xargs)
+                - export SENTRY_HTTP_TIMEOUT=120
+                - npm install
+                - npm run build
+                - pipe: atlassian/scp-deploy:1.5.0
+                  variables:
+                    USER: $SSH_USER_PROD
+                    SERVER: $SSH_HOST_PROD
+                    REMOTE_PATH: '${FULL_DIR_NAME}'
+                    LOCAL_PATH: 'dist/*'
+                    # SSH_KEY: '<string>' # Optional.
+                    # EXTRA_ARGS: '<string>' # Optional.
+                    # DEBUG: '<boolean>' # Optional.
+          - step:
+              image: node:18.17.0
+              name: "Build & Deploy Production Version RLT"
+              deployment: production_rlt
+              caches:
+                - node
+              script:
+                - export $(cat build-rlt.env | xargs)
+                - export SENTRY_HTTP_TIMEOUT=120
+                - npm install
+                - npm run build
+                - pipe: atlassian/scp-deploy:1.5.0
+                  variables:
+                    USER: $SSH_USER_PROD
+                    SERVER: $SSH_HOST_PROD
+                    REMOTE_PATH: '${FULL_DIR_NAME}'
+                    LOCAL_PATH: 'dist/*'
+                    # SSH_KEY: '<string>' # Optional.
+                    # EXTRA_ARGS: '<string>' # Optional.
+                    # DEBUG: '<boolean>' # Optional.

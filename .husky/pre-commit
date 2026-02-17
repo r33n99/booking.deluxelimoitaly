@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "Running pre-commit hook..."
+npm run format
+git add -A .
+npm run tests
+echo "Pre-commit hook completed"
