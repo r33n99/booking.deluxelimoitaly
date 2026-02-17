@@ -21,26 +21,13 @@
 1. File -> Settings -> Editor -> Inspections -> Profreading (Typo) - Uncheck
 
 
-## Contributing
-1. Read [GitFlow](https://www.atlassian.com/ru/git/tutorials/comparing-workflows/gitflow-workflow)
-2. Create new branch like feature/* or hotfix/*
-3. Develop
-4. Commit
-5. Repeat before finish functionality
-6. Push to branch
-7. Make MR to dev branch
-
 ## UnderStanding Flow
 
 We are use package for oneWay integrate to **zoho** and collect data about Leads, Deals, Contact:
 This is a repository of tree different visual projects. 
 For see the difference you need to go Install section on step 5 
 and put into .env.sentry-build-plugin 
-```dotenv
-SENTRY_AUTH_TOKEN="cdb5449a36f9fe79341210fdb0434d9a4e8a69357461e9c2f1cf779c49500aba"
-SENTRY_PROJECT="booking-platform-dli-frontend"
-VITE_PROJECT_ALIAS=dli
-```
+
 
 VITE_PROJECT_ALIAS is a variable to check project name wich (dli, dgt, rlt)
 
